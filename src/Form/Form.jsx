@@ -21,18 +21,16 @@ function Form() {
           label="Name"
           placeholder="Name"
           {...form.getInputProps("name")}
-          className="input"
         />
         <TextInput
-          mt="sm"
           label="Email"
           placeholder="Email"
           {...form.getInputProps("email")}
-          className="input"
         />
         <Select
           label="Sinfingizni tanlang"
           placeholder="Sinf"
+          searchable
           data={[
             { value: "5", label: "5" },
             { value: "6", label: "6" },
@@ -43,7 +41,6 @@ function Form() {
             { value: "11", label: "11" },
           ]}
           {...form.getInputProps("sinf")}
-          className="input"
         />
         <Button type="submit" mt="sm">
           Submit

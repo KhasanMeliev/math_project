@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import "./QuesStyle.css";
+import "./QuizStyle.css";
 import quizData from "../../quizData";
 
-function Ques() {
+function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
@@ -74,4 +74,4 @@ function Ques() {
   );
 }
 
-export default Ques;
+export default Quiz;

@@ -1,16 +1,22 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Form from "./Form/Form";
-import Category from "./Question/Category/Category";
+import Quiz from "./Question/Quiz/Quiz";
 import FileQuiz from "./Question/FileQuiz/FileQuiz";
-import Ques from "./Question/Quiz/Ques";
 
 function App() {
   return (
-    <div>
-      <Form />
-      {/* <Ques /> */}
-      {/* <Category /> */}
-    </div>
+    // <div>
+    //   <Form />
+    //   {/* <Ques /> */}
+    //   {/* <Category /> */}
+    // </div>
+    <Routes>
+      <Route path="/" element={<Form />} />
+      <Route path="/login" element={<Form />} />
+      <Route path="/filequiz" element={<FileQuiz />} />
+      <Route path="/quizapp" element={<Quiz />} />
+    </Routes>
   );
 }
 
