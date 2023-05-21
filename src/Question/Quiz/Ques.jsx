@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import "./styles.css";
-import quizData from "../quizData";
+import "./QuesStyle.css";
+import quizData from "../../quizData";
 
 function Ques() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
