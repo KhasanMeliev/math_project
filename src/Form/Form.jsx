@@ -1,14 +1,11 @@
 import { Button, Select, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import "./FormStyle.css";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Form() {
-  const navigate = useNavigate();
-
   const form = useForm({
     initialValues: { name: "", email: "", class: "" },
-
     validate: {
       name: (value) =>
         value.length < 2 ? "Name must have at least 2 letters" : null,
@@ -16,19 +13,10 @@ function Form() {
       class: (value) => (value === "" ? "Choose your class" : null),
     },
   });
-
-  const handleSubmit = () => {
-    if (form) {
-      navigate("/filequiz", { replace: true });
-    } else {
-      return;
-    }
-  };
-
   return (
     <div className="formWrapper">
       <h2>Saytga kirish</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={form.onSubmit(console.log())}>
         <TextInput
           label="Name"
           placeholder="Name"
@@ -52,12 +40,17 @@ function Form() {
             { value: "10", label: "10" },
             { value: "11", label: "11" },
           ]}
-          {...form.getInputProps("sinf")}
+          {...form.getInputProps("class")}
         />
         <Button type="submit" mt="sm">
           Submit
         </Button>
       </form>
+      <Button style={{ clor: "white", marginTop: "20px" }}>
+        <Link to="/quizapp" style={{ textDecoration: "none", color: "white" }}>
+          Quiz App ga o'tish
+        </Link>
+      </Button>
     </div>
   );
 }
