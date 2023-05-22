@@ -1,77 +1,107 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import "./QuizStyle.css";
-import quizData from "../../quizData";
+import quiz from "../../mock";
 
-function Quiz() {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
-  const [showScore, setShowScore] = useState(false);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
+const Quiz = () => {
+  const [activeQuestion, setActiveQuestion] = React.useState(0);
+  const [selectedAnswer, setSelectedAnswer] = React.useState("");
+  const [showResult, setShowResult] = React.useState(false);
+  const [selectedAnswerIndex, setSelectedAnswerIndex] = React.useState(null);
+  const [result, setResult] = React.useState({
+    score: 0,
+    correctAnswers: 0,
+    wrongAnswers: 0,
+  });
 
-  const handleAnswerClick = (answer) => {
-    setSelectedAnswer(answer);
-  };
+  const { questions } = quiz;
+  const { question, choices, correctAnswer } = questions[activeQuestion];
 
-  const handleNextQuestionClick = () => {
-    if (selectedAnswer === quizData[currentQuestion].correctAnswer) {
-      setScore(score + 1);
-    }
-
-    if (currentQuestion < quizData.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      setSelectedAnswer(null);
+  const onClickNext = () => {
+    setSelectedAnswerIndex(null);
+    setResult((prev) =>
+      selectedAnswer
+        ? {
+            ...prev,
+            score: prev.score + 5,
+            correctAnswers: prev.correctAnswers + 1,
+          }
+        : { ...prev, wrongAnswers: prev.wrongAnswers + 1 }
+    );
+    if (activeQuestion !== questions.length - 1) {
+      setActiveQuestion((prev) => prev + 1);
     } else {
-      setShowScore(true);
+      setActiveQuestion(0);
+      setShowResult(true);
     }
   };
 
-  useEffect(() => {
-    setSelectedAnswer(null);
-  }, [currentQuestion]);
+  const onAnswerSelected = (answer, index) => {
+    setSelectedAnswerIndex(index);
+    if (answer === correctAnswer) {
+      setSelectedAnswer(true);
+    } else {
+      setSelectedAnswer(false);
+    }
+  };
+
+  const addLeadingZero = (number) => (number > 9 ? number : `0${number}`);
 
   return (
-    <div className="quiz-app">
-      {showScore ? (
-        <div className="score-section">
-          Siz {quizData.length} ta savoldan {score} tasiga javob berdingiz.{" "}
-          <br />
-          Sizning ko'rsatkichingiz {Math.floor((score * 100) / quizData.length)}
-          %
-        </div>
-      ) : (
-        <>
-          <div className="question-section">
-            <div className="question-count">
-              Savol {currentQuestion + 1} / {quizData.length}
+    <div className="wrapper">
+      <div className="quiz-container">
+        {!showResult ? (
+          <div>
+            <div>
+              <span className="active-question-no">
+                {addLeadingZero(activeQuestion + 1)}
+              </span>
+              <span className="total-question">
+                /{addLeadingZero(questions.length)}
+              </span>
             </div>
-            <div className="question-text">
-              {quizData[currentQuestion].question}
-            </div>
-          </div>
-          <div className="answer-section">
-            {quizData[currentQuestion].answers.map((answer) => (
+            <h2>{question}</h2>
+            <ul>
+              {choices.map((answer, index) => (
+                <li
+                  onClick={() => onAnswerSelected(answer, index)}
+                  key={answer}
+                  className={
+                    selectedAnswerIndex === index ? "selected-answer" : null
+                  }
+                >
+                  {answer}
+                </li>
+              ))}
+            </ul>
+            <div className="flex-right">
               <button
-                key={answer}
-                onClick={() => handleAnswerClick(answer)}
-                className={`answer-button ${
-                  selectedAnswer === answer ? "selected" : ""
-                }`}
+                onClick={onClickNext}
+                disabled={selectedAnswerIndex === null}
               >
-                {answer}
+                {activeQuestion === questions.length - 1 ? "Finish" : "Next"}
               </button>
-            ))}
+            </div>
           </div>
-          <button
-            onClick={handleNextQuestionClick}
-            disabled={!selectedAnswer}
-            className="next-button"
-          >
-            Keyingi Savol
-          </button>
-        </>
-      )}
+        ) : (
+          <div className="result">
+            <h3>Result</h3>
+            <p>
+              Total Question: <span>{questions.length}</span>
+            </p>
+            <p>
+              Total Score:<span> {result.score}</span>
+            </p>
+            <p>
+              Correct Answers:<span> {result.correctAnswers}</span>
+            </p>
+            <p>
+              Wrong Answers:<span> {result.wrongAnswers}</span>
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
-}
+};
 
 export default Quiz;
