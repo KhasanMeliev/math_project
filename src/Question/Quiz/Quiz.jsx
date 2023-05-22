@@ -84,18 +84,23 @@ const Quiz = () => {
           </div>
         ) : (
           <div className="result">
-            <h3>Result</h3>
+            <h3>Natija</h3>
             <p>
-              Total Question: <span>{questions.length}</span>
+              Jami savollar: <span>{questions.length}</span>
             </p>
             <p>
-              Total Score:<span> {result.score}</span>
+              To'g'ri javoblar:<span> {result.correctAnswers}</span>
             </p>
             <p>
-              Correct Answers:<span> {result.correctAnswers}</span>
+              No'to'g'ri javoblar:<span> {result.wrongAnswers}</span>
             </p>
             <p>
-              Wrong Answers:<span> {result.wrongAnswers}</span>
+              Foiz ko'rsatkich: <span>{result.score}</span>%
+            </p>
+            <p>
+              <span style={{ textAlign: "center" }}>
+                {result.score < 30 ? "Qattiqroq o'qi" : "Hozircha yaxshi"}
+              </span>
             </p>
           </div>
         )}
