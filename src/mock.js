@@ -88,8 +88,8 @@ const quiz = {
       correctAnswer: "5",
     },
     {
-      question: "11 soni 2 ga bo'linadimi?",
-      choices: ["hech qachon", "ha", "11 son emas", "yo'q"],
+      question: "11 soni 2 ga qoldiqsiz bo'linadimi?",
+      choices: ["ha", "11 son emas", "yo'q"],
       type: "easy",
       correctAnswer: "yo'q",
     },

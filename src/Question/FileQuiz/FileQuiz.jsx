@@ -1,17 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./FileQuiz.css";
 import { Button, Select, TextInput } from "@mantine/core";
 import { Link } from "react-router-dom";
 const FileQuiz = () => {
-  const [inputValue, setInputValue] = useState("");
-
-  const handleSubmit = () => {
-    if (document.querySelector(".mantine-select-input") === "5") {
-      if (inputValue) {
-        alert("hello");
-      }
-    }
-  };
   return (
     <div className="wrapper">
       <div className="sinflar">
@@ -42,12 +33,8 @@ const FileQuiz = () => {
           label="Javobni yozing..."
           placeholder="ABCD...."
           className="input"
-          value={inputValue}
-          onChange={(event) => setInputValue(event.target.value)}
         />
-        <Button className="button" onClick={handleSubmit}>
-          Submit
-        </Button>
+        <Button className="button">Submit</Button>
         <Button style={{ clor: "white" }}>
           <Link
             to="/quizapp"

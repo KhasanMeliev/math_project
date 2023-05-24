@@ -1,6 +1,6 @@
-import { Button, Select, TextInput } from "@mantine/core";
+import { Button, TextInput } from "@mantine/core";
 import "./FormStyle.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import swal from "sweetalert";
 
