@@ -99,7 +99,7 @@ const Quiz = () => {
             </p>
             <p>
               <span style={{ textAlign: "center" }}>
-                {result.score < 30 ? "Qattiqroq o'qi" : "Hozircha yaxshi"}
+                {result.score < 30 ? "Not good🥺!" : "Well Done✔"}
               </span>
             </p>
           </div>
