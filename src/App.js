@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import Form from "./Form/Form";
-import Quiz from "./Question/Quiz/Quiz";
-import FileQuiz from "./Question/FileQuiz/FileQuiz";
+import Quiz from "./pages/Quiz/Quiz";
+import FileQuiz from "./pages/FileQuiz/FileQuiz";
 import "./App.css";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path="/login" element={<Form />} />
       <Route path="/filequiz" element={<FileQuiz />} />
       <Route path="/quizapp" element={<Quiz />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
   );
 }

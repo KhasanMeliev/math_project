@@ -6,13 +6,13 @@ const FileQuiz = () => {
   return (
     <div className="wrapper">
       <div className="sinflar">
-        <div className="sinf">5 - sinf Algebra</div>
-        <div className="sinf">6 - sinf Algebra</div>
-        <div className="sinf">7 - sinf Algebra</div>
-        <div className="sinf">8 - sinf Algebra</div>
-        <div className="sinf">9 - sinf Algebra</div>
-        <div className="sinf">10 - sinf Algebra</div>
-        <div className="sinf">11 - sinf Algebra</div>
+        <div>5 - sinf Algebra</div>
+        <div>6 - sinf Algebra</div>
+        <div>7 - sinf Algebra</div>
+        <div>8 - sinf Algebra</div>
+        <div>9 - sinf Algebra</div>
+        <div>10 - sinf Algebra</div>
+        <div>11 - sinf Algebra</div>
       </div>
       <div className="javob">
         <Select
