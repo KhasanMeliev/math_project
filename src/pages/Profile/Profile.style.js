@@ -6,13 +6,14 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #00204a;
 `;
 export const Card = styled.div`
   width: 300px;
   height: 290px;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: #00bbf0;
   border-radius: 4px;
 `;
 
@@ -23,6 +24,7 @@ export const Texts = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  color: #00204a;
 
   h1 {
     margin: 0;
@@ -46,5 +48,6 @@ export const Tests = styled.div`
     font-size: 25px;
     text-align: center;
     font-weight: 450;
+    color: #00204a;
   }
 `;

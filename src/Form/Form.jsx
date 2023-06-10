@@ -5,15 +5,10 @@ import swal from "sweetalert";
 import FormInput from "./FormInput/FormInput";
 import { redirect, useNavigate } from "react-router-dom";
 
-function Form() {
+function Form(props) {
+  const {values, setValues} = props;
   const navigate = useNavigate();
-  const [values, setValues] = useState({
-    username: "",
-    email: "",
-    password: "",
-    class: "",
-  });
-
+  
   const inputs = [
     {
       id: 1,
@@ -53,7 +48,6 @@ function Form() {
       placeholder: "Sinf",
       errorMessage: "Class don't match!",
       label: "Choose your class",
-      pattern:'^\d{1,9}$',
       required: true,
     },
   ];

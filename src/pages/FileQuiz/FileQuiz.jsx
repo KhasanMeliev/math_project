@@ -2,7 +2,12 @@ import React from "react";
 import "./FileQuiz.css";
 import { Button, Select, TextInput } from "@mantine/core";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
 const FileQuiz = () => {
+  const [sinf, setSinf] = useState(5)
+  const [javob, setJavob] = useState('')
+  
   return (
     <div className="wrapper">
       <div className="sinflar">
