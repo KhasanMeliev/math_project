@@ -3,14 +3,17 @@ import "./FormStyle.css";
 import { useState } from "react";
 import swal from "sweetalert";
 import FormInput from "./FormInput/FormInput";
+import { redirect, useNavigate } from "react-router-dom";
 
 function Form() {
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     username: "",
     email: "",
     password: "",
     class: "",
   });
+
   const inputs = [
     {
       id: 1,
@@ -54,9 +57,12 @@ function Form() {
       required: true,
     },
   ];
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values);
+    swal("Tayyor", "Profile muvaffaqiyatli yaratildi", "success");    
+    console.log(values)
+    navigate("/profile");
   };
 
   const onChange = (e) => {
@@ -66,7 +72,7 @@ function Form() {
   return (
     <div className="formWrapper">
       <h2>Saytga kirish</h2>
-      <form onSubmit={handleSubmit} autoComplete="off">
+      <form onSubmit={handleSubmit} >
         {inputs.map((input) => (
           <FormInput
             key={input.id}
@@ -75,15 +81,6 @@ function Form() {
             onChange={onChange}
           />
         ))}
-        {/* <TextInput
-          label="Email"
-          placeholder="Email"
-          value={details.email}
-          onChange={(e) => {
-            setDetails({ ...details, email: e.target.value });
-          }}
-        /> */}
-
         <button type="submit">Submit</button>
       </form>
     </div>
