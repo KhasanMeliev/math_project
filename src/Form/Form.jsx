@@ -50,6 +50,7 @@ function Form() {
       placeholder: "Sinf",
       errorMessage: "Class don't match!",
       label: "Choose your class",
+      pattern:'^\d{1,9}$',
       required: true,
     },
   ];
