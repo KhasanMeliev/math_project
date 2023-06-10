@@ -34,7 +34,7 @@ const FileQuiz = () => {
           placeholder="ABCD...."
           className="input"
         />
-        <Button className="button">Submit</Button>
+        <button>Submit</button>
         <Button style={{ clor: "white" }}>
           <Link
             to="/quizapp"

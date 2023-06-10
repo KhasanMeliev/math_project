@@ -1,56 +1,89 @@
-import { Button, TextInput } from "@mantine/core";
+import { Button } from "@mantine/core";
 import "./FormStyle.css";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import swal from "sweetalert";
+import FormInput from "./FormInput/FormInput";
 
 function Form() {
-  const navigate = useNavigate();
-
-  const initialValues = {
-    name: "",
+  const [values, setValues] = useState({
+    username: "",
     email: "",
-  };
-  const [details, setDetails] = useState(initialValues);
-
+    password: "",
+    class: "",
+  });
+  const inputs = [
+    {
+      id: 1,
+      name: "username",
+      type: "text",
+      placeholder: "Username",
+      errorMessage:
+        "Username should be 3-16 characters and shouldn't include any special character!",
+      label: "Username",
+      pattern: "^[A-Za-z0-9]{3,16}$",
+      required: true,
+    },
+    {
+      id: 2,
+      name: "email",
+      type: "email",
+      placeholder: "Email",
+      errorMessage: "It should be a valid email address!",
+      label: "Email",
+      required: true,
+    },
+    {
+      id: 3,
+      name: "password",
+      type: "password",
+      placeholder: "Password",
+      errorMessage:
+        "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
+      label: "Password",
+      pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
+      required: true,
+    },
+    {
+      id: 4,
+      name: "class",
+      type: "number",
+      placeholder: "Sinf",
+      errorMessage: "Class don't match!",
+      label: "Choose your class",
+      required: true,
+    },
+  ];
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (details.name === "") {
-      swal("Error!", "Name isn't blank", "error");
-      return false;
-    } else if (details.email === "") {
-      swal("Error!", "Email isn't blank or less than 6 characters", "error");
-      return false;
-    } else {
-      swal("Success!", "Successfully Logined", "success");
-      return navigate("/quizapp");
-    }
+    console.log(values);
   };
+
+  const onChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="formWrapper">
       <h2>Saytga kirish</h2>
-      <form onSubmit={handleSubmit} autocomplete="off">
-        <TextInput
-          label="Name"
-          placeholder="Name"
-          autoComplete="off"
-          value={details.name}
-          onChange={(e) => {
-            setDetails({ ...details, name: e.target.value });
-          }}
-        />
-        <TextInput
+      <form onSubmit={handleSubmit} autoComplete="off">
+        {inputs.map((input) => (
+          <FormInput
+            key={input.id}
+            {...input}
+            value={values[input.name]}
+            onChange={onChange}
+          />
+        ))}
+        {/* <TextInput
           label="Email"
           placeholder="Email"
           value={details.email}
           onChange={(e) => {
             setDetails({ ...details, email: e.target.value });
           }}
-        />
+        /> */}
 
-        <Button type="submit" mt="sm">
-          Submit
-        </Button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
