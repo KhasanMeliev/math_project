@@ -1,7 +1,17 @@
 import React from "react";
 import "./FileQuiz.css";
-import {  TextInput } from "@mantine/core";
+import { TextInput } from "@mantine/core";
 import { useState } from "react";
+import swal from "sweetalert";
+import five from "../../assets/files/five.pdf";
+import six from "../../assets/files/six.pdf";
+import seven from "../../assets/files/seven.pdf";
+import eight from "../../assets/files/eight.pdf";
+import nine from "../../assets/files/nine.pdf";
+import ten from "../../assets/files/ten.pdf";
+import eleven from "../../assets/files/eleven.pdf";
+
+
 
 const FileQuiz = () => {
   const [check, setCheck] = useState({
@@ -28,22 +38,22 @@ const FileQuiz = () => {
     let wrongAns = 0;
     let score = 0
     let clas = answers[check.sinf];
-    if ((clas === '5' || clas === '6') && (check.javob.length <30)) {
-        console.log('xato')
+    if ((check.javob.length < 30) && (check.sinf === '5' || check.sinf === '6')) {
+      swal("Xato", "Test kalitlari 30 ta bo'lishi kerak", "error");
+      return false
     }
-    else if (clas === '7' || clas === '8' || clas === '9' || clas === '10' || clas === '11') {
+    else if (check.sinf === '7' || check.sinf === '8' || check.sinf === '9' || check.sinf === '10' || check.sinf === '11') {
       if (check.javob.length !== 20) {
-        console.log('xato')
+        swal("Xato", "Test kalitlari 20 ta bo'lishi kerak", "error");
+        return false
       }
     }
-    else {
-      console.log('true')
-    }
-    for (let i = 0; i < check.javob.length; i++) {
-      if (clas[i] === check.javob[i]) {
-        count += 1;
+      for (let i = 0; i < check.javob.length; i++) {
+        if (clas[i] === check.javob[i]) {
+          count += 1;
+        }
       }
-    }
+
     wrongAns = check.javob.length - count;
     score = (count / check.javob.length) * 100
     setCorrect(count)
@@ -73,13 +83,13 @@ const FileQuiz = () => {
   return (
     <div className="wrapper">
       <div className="sinflar">
-        <div>5 - sinf Algebra</div>
-        <div>6 - sinf Algebra</div>
-        <div>7 - sinf Algebra</div>
-        <div>8 - sinf Algebra</div>
-        <div>9 - sinf Algebra</div>
-        <div>10 - sinf Algebra</div>
-        <div>11 - sinf Algebra</div>
+        <a href={five} target="_blank" rel="noreferrer"> <div>5 - sinf Algebra</div></a>
+        <a href={six} target="_blank" rel="noreferrer"> <div>6 - sinf Algebra</div></a>
+        <a href={seven} target="_blank" rel="noreferrer"> <div>7 - sinf Algebra</div></a>
+        <a href={eight} target="_blank" rel="noreferrer">  <div>8 - sinf Algebra</div></a>
+        <a href={nine} target="_blank" rel="noreferrer"> <div>9 - sinf Algebra</div></a>
+        <a href={ten} target="_blank" rel="noreferrer">  <div>10 - sinf Algebra</div></a>
+        <a href={eleven} target="_blank" rel="noreferrer">  <div>11 - sinf Algebra</div></a>
       </div>
       <div className="javob">
         {inputs.map((input) => (
@@ -107,7 +117,7 @@ const FileQuiz = () => {
           No'to'g'ri javoblar: <span>{wrong}</span>
         </p>
         <p>
-          Foiz ko'rsatkich: <span>{Math.floor(score)}</span>%
+          Foiz ko'rsatkich: <span>{score?Math.floor(score):0}</span>%
         </p>
       </div>
     </div>

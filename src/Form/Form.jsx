@@ -64,7 +64,7 @@ function Form(props) {
   return (
     <div className="formWrapper">
       <h2>Saytga kirish</h2>
-      <form onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit} autoComplete="on" >
         {inputs.map((input) => (
           <FormInput
             key={input.id}

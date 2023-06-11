@@ -18,7 +18,10 @@
   flex-wrap: wrap;
   gap: 20px;
 }
-
+.sinflar a{
+  text-decoration: none;
+  color: inherit;
+}
 .sinflar div {
   background-color: #282828;
   display: flex;
