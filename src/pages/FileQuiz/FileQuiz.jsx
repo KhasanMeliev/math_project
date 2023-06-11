@@ -1,6 +1,6 @@
 import React from "react";
 import "./FileQuiz.css";
-import { Select, TextInput } from "@mantine/core";
+import {  TextInput } from "@mantine/core";
 import { useState } from "react";
 
 const FileQuiz = () => {
@@ -99,7 +99,7 @@ const FileQuiz = () => {
       <div className="result">
         <h3>Natija</h3>
         <p>
-          Jami savollar: <span>{check.sinf == '5' || check.sinf == '6' ? 30 : 20}</span>
+          Jami savollar: <span>{check.sinf === '5' || check.sinf === '6' ? 30 : 20}</span>
         </p>
         <p>
           To'g'ri javoblar: <span>{correct}</span>
