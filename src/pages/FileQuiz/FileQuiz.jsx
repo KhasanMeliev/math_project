@@ -103,6 +103,7 @@ const FileQuiz = () => {
               value={check[input.name]}
               onChange={onChange}
               autoComplete="off"
+              className="input"
             />
             <i>{input.errorMessage}</i>
           </>

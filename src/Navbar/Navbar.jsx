@@ -14,7 +14,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="container">
         <div className="logo">
-          math
+        <NavLink to="/quizapp">math</NavLink>
         </div>
         <div className="menu-icon" onClick={handleShowNavbar}>
             <RxHamburgerMenu/>

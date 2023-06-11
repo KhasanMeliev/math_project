@@ -24,10 +24,12 @@ body {
 }
 
 .logo {
-  color: white;
   font-size: 30px;
 }
-
+.logo a{
+  text-decoration: none;
+  color: white;
+}
 .menu-icon {
   display: none;
 }
