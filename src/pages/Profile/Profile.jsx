@@ -3,7 +3,7 @@ import "./Profile.style.js";
 import { Card, Tests, Texts, Wrapper } from "./Profile.style.js";
 
 const Profile = (props) => {
-  const {values, setValues} = props;
+  const {values} = props;
 
   return (
     <Wrapper>

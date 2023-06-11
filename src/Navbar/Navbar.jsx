@@ -1,7 +1,5 @@
 import { React, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import Hamburger  from "../assets/images/hamburger'.png"
-// import { ReactComponent as Brand } from '../../assets/icons/logo.svg'
 import './Navbar.css'
 import {RxHamburgerMenu} from 'react-icons/rx'
 

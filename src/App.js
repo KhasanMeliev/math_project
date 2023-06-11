@@ -28,10 +28,7 @@ function App() {
         <Route path="/login" element={<Form />} />
         <Route path="/filequiz" element={<FileQuiz />} />
         <Route path="/quizapp" element={<Quiz />} />
-        <Route
-          path="/profile"
-          element={<Profile values={values} setValues={setValues} />}
-        />
+        <Route path="/profile" element={<Profile values={values} />} />
       </Routes>
     </>
   );
