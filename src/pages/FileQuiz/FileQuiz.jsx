@@ -5,9 +5,28 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const FileQuiz = () => {
-  const [sinf, setSinf] = useState(5)
+  const [sinf, setSinf] = useState()
   const [javob, setJavob] = useState('')
-  
+  let answers = {
+    5: "DCADACCABDBDCDDABAACBDABCABCDB", //1
+    6: "ABCDBBADCDDBCDDACABAABDCBACBDA", //2
+    7: "ADCBDACBDABCBADCABDC", //1
+    8: "DDCBCBBDCADBCBCDBCBB", //2
+    9: "BAACDCABDCAADBDCABCA", //1
+    10: "DDCBACCCDACBBABBACAB", //2
+    11: "CBAABBCADCCDBDCCBABD", //2
+  };
+
+  function tekshirish(sinf, javob) {
+    let count = 0;
+    let clas = answers[sinf];
+    for (let i = 0; i < javob.length; i++) {
+      if (clas[i] === javob[i]) {
+        count += 1;
+      }
+    }
+    console.log(count);
+  }
   return (
     <div className="wrapper">
       <div className="sinflar">
@@ -38,9 +57,11 @@ const FileQuiz = () => {
           label="Javobni yozing..."
           placeholder="ABCD...."
           className="input"
+          value={javob}
+          onChange={(e) => { setJavob(e.target.value) }}
         />
-        <button>Submit</button>
-       
+        <button onClick={tekshirish}>Submit</button>
+
       </div>
     </div>
   );
