@@ -1,12 +1,12 @@
 import React from "react";
 import "./FileQuiz.css";
-import { Button, Select, TextInput } from "@mantine/core";
-import { Link } from "react-router-dom";
+import { Select, TextInput } from "@mantine/core";
 import { useState } from "react";
 
 const FileQuiz = () => {
   const [sinf, setSinf] = useState()
-  const [javob, setJavob] = useState('')
+  const [javob, setJavob] = useState("")
+
   let answers = {
     5: "DCADACCABDBDCDDABAACBDABCABCDB", //1
     6: "ABCDBBADCDDBCDDACABAABDCBACBDA", //2
@@ -18,15 +18,17 @@ const FileQuiz = () => {
   };
 
   function tekshirish(sinf, javob) {
-    let count = 0;
-    let clas = answers[sinf];
-    for (let i = 0; i < javob.length; i++) {
-      if (clas[i] === javob[i]) {
-        count += 1;
-      }
-    }
-    console.log(count);
+    // let count = 0;
+    // let clas = answers[sinf];
+    // for (let i = 0; i < javob.length; i++) {
+    //   if (clas[i] === javob[i]) {
+    //     count += 1;
+    //   }
+    // }
+    // console.log(count);
+    console.log(setJavob(javob))
   }
+
   return (
     <div className="wrapper">
       <div className="sinflar">
@@ -57,11 +59,11 @@ const FileQuiz = () => {
           label="Javobni yozing..."
           placeholder="ABCD...."
           className="input"
-          value={javob}
-          onChange={(e) => { setJavob(e.target.value) }}
+          name="javob"
+          value={javob} 
+          onChange={e => setJavob(e.target.value)}
         />
         <button onClick={tekshirish}>Submit</button>
-
       </div>
     </div>
   );
