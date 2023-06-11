@@ -38,21 +38,24 @@ const FileQuiz = () => {
     let wrongAns = 0;
     let score = 0
     let clas = answers[check.sinf];
+    if ((check.sinf === "" || check.javob.length === 0)) {
+      swal("Xato", "Inputlarni to'ldiring!", "error");
+    }
     if ((check.javob.length < 30) && (check.sinf === '5' || check.sinf === '6')) {
-      swal("Xato", "Test kalitlari 30 ta bo'lishi kerak", "error");
+      swal("Xato", "Test kalitlari 30 ta bo'lishi kerak!", "error");
       return false
     }
     else if (check.sinf === '7' || check.sinf === '8' || check.sinf === '9' || check.sinf === '10' || check.sinf === '11') {
       if (check.javob.length !== 20) {
-        swal("Xato", "Test kalitlari 20 ta bo'lishi kerak", "error");
+        swal("Xato", "Test kalitlari 20 ta bo'lishi kerak!", "error");
         return false
       }
     }
-      for (let i = 0; i < check.javob.length; i++) {
-        if (clas[i] === check.javob[i]) {
-          count += 1;
-        }
+    for (let i = 0; i < check.javob.length; i++) {
+      if (clas[i] === check.javob[i]) {
+        count += 1;
       }
+    }
 
     wrongAns = check.javob.length - count;
     score = (count / check.javob.length) * 100
@@ -99,6 +102,7 @@ const FileQuiz = () => {
               {...input}
               value={check[input.name]}
               onChange={onChange}
+              autoComplete="off"
             />
             <i>{input.errorMessage}</i>
           </>
@@ -117,7 +121,7 @@ const FileQuiz = () => {
           No'to'g'ri javoblar: <span>{wrong}</span>
         </p>
         <p>
-          Foiz ko'rsatkich: <span>{score?Math.floor(score):0}</span>%
+          Foiz ko'rsatkich: <span>{score ? Math.floor(score) : 0}</span>%
         </p>
       </div>
     </div>
