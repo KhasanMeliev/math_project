@@ -1,24 +1,26 @@
 .wrapper {
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #1a1a1a;
+  padding: 0px 0px 60px 0px;
 }
 .quiz-container {
-  max-width: 500px;
+  max-width: 400px;
   min-width: 250px;
-  background-color: #1f1e25;
+  background-color: #282828;
   border-radius: 4px;
   margin-top: 30px;
-  padding: 30px 60px;
+  padding: 20px 50px;
   color: white;
+  box-shadow:  0px 2px 4px rgba(0, 0, 0, 0.08),0px 4px 8px rgba(0, 0, 0, 0.08),0px 6px 12px rgba(0, 0, 0, 0.08);;
 }
 
 .quiz-container .active-question-no {
   font-size: 32px;
   font-weight: 500;
-  color: #fff;
+  color: #fff;  
 }
 
 .quiz-container .total-question {
@@ -42,8 +44,8 @@
   text-decoration: none;
   list-style: none;
   font-size: 16px;
-  background: #181818;
-  border: 1px solid #eaeaea;
+  background: #1a1a1a;
+  border: 1px solid #eff1f6bf;
   border-radius: 16px;
   padding: 11px;
   margin-top: 15px;
@@ -57,7 +59,7 @@
 }
 
 .quiz-container button {
-  background: #181818;
+  background: #1a1a1a;
   border-radius: 9px;
   font-size: 18px;
   color: #ffffff;
@@ -69,7 +71,7 @@
 }
 
 .quiz-container button:disabled {
-  background: #1f1e25;
+  background: #1a1a1a;
   color: #9fa3a9;
   cursor: not-allowed;
 }
@@ -93,4 +95,8 @@
 .result p span {
   color: #fff;
   font-size: 22px;
+}
+
+.quesCount{
+  display: flex;
 }

@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import Hamburger  from "../assets/images/hamburger'.png"
 // import { ReactComponent as Brand } from '../../assets/icons/logo.svg'
 import './Navbar.css'
+import {RxHamburgerMenu} from 'react-icons/rx'
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(false)
@@ -15,16 +16,15 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="container">
         <div className="logo">
-          {/* <Brand /> */}
-          hasan
+          math
         </div>
         <div className="menu-icon" onClick={handleShowNavbar}>
-            <img src={<Hamburger/>} alt="menu" />
+            <RxHamburgerMenu/>
         </div>
         <div className={`nav-elements  ${showNavbar && 'active'}`}>
           <ul>
             <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/">Login</NavLink>
             </li>
             <li>
               <NavLink to="/quizapp">Quiz</NavLink>

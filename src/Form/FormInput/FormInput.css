@@ -5,8 +5,9 @@
 }
 
 input {
-  padding: 15px;
+  padding: 12px;
   margin: 5px 0px;
+  outline: none;
   border-radius: 5px;
   border: 1px solid gray;
 }
@@ -16,17 +17,17 @@ label {
   color: gray;
 }
 
-span {
-  font-size: 12px;
-  color: red;
+i {
+  font-size: 13px;
+  color: rgb(255, 33, 33);
   display: none;
   margin-top: -5px;
 }
 
 input:invalid[focused="true"] {
-  border: 1px solid red;
+  border: 2px solid red;
 }
 
-input:invalid[focused="true"] ~ span {
+input:invalid[focused="true"] ~ i {
   display: block;
 }

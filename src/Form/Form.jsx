@@ -1,9 +1,7 @@
-import { Button } from "@mantine/core";
 import "./FormStyle.css";
-import { useState } from "react";
 import swal from "sweetalert";
 import FormInput from "./FormInput/FormInput";
-import { redirect, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 function Form(props) {
   const {values, setValues} = props;
@@ -16,7 +14,7 @@ function Form(props) {
       type: "text",
       placeholder: "Username",
       errorMessage:
-        "Username should be 3-16 characters and shouldn't include any special character!",
+        "Username 3-16 ta harf bo'lishi mumkin, oradan bo'sh joylar qolmasin!",
       label: "Username",
       pattern: "^[A-Za-z0-9]{3,16}$",
       required: true,
@@ -26,7 +24,7 @@ function Form(props) {
       name: "email",
       type: "email",
       placeholder: "Email",
-      errorMessage: "It should be a valid email address!",
+      errorMessage: "To'g'ri email ni kiritishingiz kerak!",
       label: "Email",
       required: true,
     },
@@ -36,7 +34,7 @@ function Form(props) {
       type: "password",
       placeholder: "Password",
       errorMessage:
-        "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
+        "Parol 8-20 belgidan iborat bo'lishi va kamida 1 harf, 1 raqam va 1 ta maxsus belgidan iborat bo'lishi kerak!",
       label: "Password",
       pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
       required: true,
@@ -46,7 +44,7 @@ function Form(props) {
       name: "class",
       type: "number",
       placeholder: "Sinf",
-      errorMessage: "Class don't match!",
+      errorMessage: "Berilgan sinflarda birini tanlang!",
       label: "Choose your class",
       required: true,
     },

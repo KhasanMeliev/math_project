@@ -40,14 +40,7 @@ const FileQuiz = () => {
           className="input"
         />
         <button>Submit</button>
-        <Button style={{ clor: "white" }}>
-          <Link
-            to="/quizapp"
-            style={{ textDecoration: "none", color: "white" }}
-          >
-            Quiz App ga o'tish
-          </Link>
-        </Button>
+       
       </div>
     </div>
   );
