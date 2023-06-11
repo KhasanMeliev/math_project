@@ -110,7 +110,7 @@ const FileQuiz = () => {
         ))}
         <button onClick={tekshirish} >Submit</button>
       </div>
-      <div className="result">
+      {correct?<div className="result">
         <h3>Natija</h3>
         <p>
           Jami savollar: <span>{check.sinf === '5' || check.sinf === '6' ? 30 : 20}</span>
@@ -124,7 +124,7 @@ const FileQuiz = () => {
         <p>
           Foiz ko'rsatkich: <span>{score ? Math.floor(score) : 0}</span>%
         </p>
-      </div>
+      </div>:<p>Javob yuboring</p>}
     </div>
   );
 };
