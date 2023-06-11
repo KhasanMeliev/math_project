@@ -28,7 +28,7 @@ const FileQuiz = () => {
     let wrongAns = 0;
     let score = 0
     let clas = answers[check.sinf];
-    if ((clas === '5' || clas === '6') && check.javob.length !== 30) {
+    if ((clas === '5' || clas === '6') && (check.javob.length <30)) {
         console.log('xato')
     }
     else if (clas === '7' || clas === '8' || clas === '9' || clas === '10' || clas === '11') {
