@@ -3,7 +3,7 @@ import "./Profile.style.js";
 import { Card, Tests, Texts, Wrapper } from "./Profile.style.js";
 
 const Profile = (props) => {
-  const {values} = props;
+  const { values } = props;
 
   return (
     <Wrapper>
@@ -17,7 +17,7 @@ const Profile = (props) => {
           <p>{values.class}-sinf</p>
         </Texts>
         <Tests>
-          <p>Urgut tuman ixtisoslashtirilgan maktabi</p>
+          <p>93-maktab</p>
         </Tests>
       </Card>
     </Wrapper>
